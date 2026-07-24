@@ -36,14 +36,19 @@ function Booking() {
     aadhaar: "",
     license: "",
     address: "",
-    bike: "",
     pickupDate: "",
     pickupTime: "",
     returnDate: "",
     returnTime: "",
     purpose: "",
-    agree: false,
-  });
+agree1: false,
+agree2: false,
+agree3: false,
+agree4: false,
+agree5: false,
+agree6: false,
+agree7: false,
+agree8: false,  });
 
   const [errors, setErrors] = useState({});
 
@@ -110,9 +115,6 @@ function Booking() {
     if (!formData.address.trim())
       newErrors.address = "Address is required.";
 
-    if (!formData.bike)
-      newErrors.bike = "Please select a bike.";
-
     if (!formData.pickupDate)
       newErrors.pickupDate =
         "Pickup date is required.";
@@ -170,9 +172,14 @@ function Booking() {
       }
     }
 
-    if (!formData.agree)
-  newErrors.agree =
-    "You must accept the Terms & Conditions.";
+if (!formData.agree1) newErrors.agree1 = "Required";
+if (!formData.agree2) newErrors.agree2 = "Required";
+if (!formData.agree3) newErrors.agree3 = "Required";
+if (!formData.agree4) newErrors.agree4 = "Required";
+if (!formData.agree5) newErrors.agree5 = "Required";
+if (!formData.agree6) newErrors.agree6 = "Required";
+if (!formData.agree7) newErrors.agree7 = "Required";
+if (!formData.agree8) newErrors.agree8 = "Required";
 
 console.log(newErrors);
 
@@ -224,9 +231,6 @@ ${formData.address}
 ━━━━━━━━━━━━━━━━━━
 
 🏍️ *RIDE DETAILS*
-
-Bike:
-${formData.bike}
 
 Pickup Date:
 ${formData.pickupDate}
@@ -503,79 +507,6 @@ Generated from RIDEX Website`;
 
         <div className="grid md:grid-cols-2 gap-5">
 
-          {/* Bike */}
-
-          <div>
-
-            <label className="block mb-2 font-medium">
-              Select Bike *
-            </label>
-
-            <select
-              name="bike"
-              value={formData.bike}
-              onChange={handleChange}
-              className={`w-full p-3 rounded-lg bg-gray-800 border ${
-                errors.bike
-                  ? "border-red-500"
-                  : "border-gray-700"
-              }`}
-            >
-              <option value="">Choose Bike</option>
-
-              <option>Royal Enfield Classic 350</option>
-              <option>Royal Enfield Hunter 350</option>
-              <option>Royal Enfield Meteor 350</option>
-
-              <option>Yamaha R15 V4</option>
-              <option>Yamaha MT-15</option>
-
-              <option>KTM Duke 200</option>
-              <option>KTM RC 200</option>
-
-              <option>Bajaj Pulsar NS200</option>
-
-              <option>TVS Apache RTR 200</option>
-
-              <option>Honda Activa 6G</option>
-
-            </select>
-
-            {errors.bike && (
-              <p className="text-red-400 text-sm mt-1">
-                {errors.bike}
-              </p>
-            )}
-
-          </div>
-
-          <div>
-
-            <label className="block mb-2 font-medium">
-              Pickup Location *
-            </label>
-
-            <input
-              type="text"
-              name="pickupLocation"
-              value={formData.pickupLocation}
-              onChange={handleChange}
-              placeholder="Pickup Location"
-              className={`w-full p-3 rounded-lg bg-gray-800 border ${
-                errors.pickupLocation
-                  ? "border-red-500"
-                  : "border-gray-700"
-              }`}
-            />
-
-            {errors.pickupLocation && (
-              <p className="text-red-400 text-sm mt-1">
-                {errors.pickupLocation}
-              </p>
-            )}
-
-          </div>
-
           {/* Pickup Date */}
 
           <div>
@@ -688,32 +619,6 @@ Generated from RIDEX Website`;
 
           </div>
 
-          <div className="md:col-span-2">
-
-            <label className="block mb-2 font-medium">
-              Destination *
-            </label>
-
-            <input
-              type="text"
-              name="destination"
-              value={formData.destination}
-              onChange={handleChange}
-              placeholder="Example: Kakinada Ramesampeta Rajamundry Limits Only"
-              className={`w-full p-3 rounded-lg bg-gray-800 border ${
-                errors.destination
-                  ? "border-red-500"
-                  : "border-gray-700"
-              }`}
-            />
-
-            {errors.destination && (
-              <p className="text-red-400 text-sm mt-1">
-                {errors.destination}
-              </p>
-            )}
-
-          </div>
 
           {/* Purpose */}
 
@@ -745,98 +650,149 @@ Generated from RIDEX Website`;
           </div>
 
         </div>
+</div>
+{/* ---------------- TERMS & CONDITIONS ---------------- */}
 
-      </div>       {/* ---------------- TERMS & CONDITIONS ---------------- */}
+<div className="mt-8">
 
-      <div className="mt-8">
+  <h2 className="text-2xl font-semibold text-red-400 mb-4">
+    📜 Terms & Conditions
+  </h2>
 
-        <h2 className="text-2xl font-semibold text-red-400 mb-4">
-          📜 Terms & Conditions
-        </h2>
+<div className="bg-gray-800 border border-gray-700 rounded-xl p-5 space-y-4">
 
-        <div className="bg-gray-800 border border-gray-700 rounded-xl p-5 text-gray-300 leading-8">
+  <label className="flex items-start gap-3">
+    <input
+      type="checkbox"
+      name="agree1"
+      checked={formData.agree1}
+      onChange={handleChange}
+      className="mt-1 h-5 w-5"
+    />
+    <span>
+      🏍️ I understand that the maximum scooter speed limit is <strong>60 KM/H</strong>.
+    </span>
+  </label>
+  {errors.agree1 && (
+    <p className="text-red-400 text-sm">{errors.agree1}</p>
+  )}
 
-          <ol className="list-decimal list-inside space-y-2">
+  <label className="flex items-start gap-3">
+    <input
+      type="checkbox"
+      name="agree2"
+      checked={formData.agree2}
+      onChange={handleChange}
+      className="mt-1 h-5 w-5"
+    />
+    <span>
+      📏 I agree that extra kilometres will be charged at <strong>₹4 per KM</strong>.
+    </span>
+  </label>
+  {errors.agree2 && (
+    <p className="text-red-400 text-sm">{errors.agree2}</p>
+  )}
 
-            <li>Maximum speed limit is <strong>60 KM/H</strong>.</li>
+  <label className="flex items-start gap-3">
+    <input
+      type="checkbox"
+      name="agree3"
+      checked={formData.agree3}
+      onChange={handleChange}
+      className="mt-1 h-5 w-5"
+    />
+    <span>
+      ⏰ I agree that extra time will be charged at <strong>₹30 per 30 minutes</strong>.
+    </span>
+  </label>
+  {errors.agree3 && (
+    <p className="text-red-400 text-sm">{errors.agree3}</p>
+  )}
 
-            <li>
-              Extra kilometres will be charged at
-              <strong> ₹4 per KM</strong>.
-            </li>
+  <label className="flex items-start gap-3">
+    <input
+      type="checkbox"
+      name="agree4"
+      checked={formData.agree4}
+      onChange={handleChange}
+      className="mt-1 h-5 w-5"
+    />
+    <span>
+      📹 I will take proper photos and videos of the vehicle before starting the ride to record any existing damages.
+    </span>
+  </label>
+  {errors.agree4 && (
+    <p className="text-red-400 text-sm">{errors.agree4}</p>
+  )}
 
-            <li>
-              Extra time will be charged at
-              <strong> ₹30 per 30 minutes</strong>.
-            </li>
+  <label className="flex items-start gap-3">
+    <input
+      type="checkbox"
+      name="agree5"
+      checked={formData.agree5}
+      onChange={handleChange}
+      className="mt-1 h-5 w-5"
+    />
+    <span>
+      🔧 I accept full responsibility for any new damages caused during my rental and will bear the repair costs.
+    </span>
+  </label>
+  {errors.agree5 && (
+    <p className="text-red-400 text-sm">{errors.agree5}</p>
+  )}
 
-            <li>
-              Petrol expenses are <strong>NOT included</strong>.
-            </li>
+  <label className="flex items-start gap-3">
+    <input
+      type="checkbox"
+      name="agree6"
+      checked={formData.agree6}
+      onChange={handleChange}
+      className="mt-1 h-5 w-5"
+    />
+    <span>
+      ⛽ I understand that <strong>Petrol is NOT included</strong> in the rental package.
+    </span>
+  </label>
+  {errors.agree6 && (
+    <p className="text-red-400 text-sm">{errors.agree6}</p>
+  )}
 
-            <li>
-              Customer is responsible for any
-              <strong> new damages</strong>.
-            </li>
+  <label className="flex items-start gap-3">
+    <input
+      type="checkbox"
+      name="agree7"
+      checked={formData.agree7}
+      onChange={handleChange}
+      className="mt-1 h-5 w-5"
+    />
+    <span>
+      👥 I understand that only <strong>2 persons (Rider + Pillion)</strong> with minimum luggage are allowed on the scooter.
+    </span>
+  </label>
+  {errors.agree7 && (
+    <p className="text-red-400 text-sm">{errors.agree7}</p>
+  )}
 
-            <li>
-              Customer must maintain proper tyre air pressure.
-            </li>
+  <label className="flex items-start gap-3">
+    <input
+      type="checkbox"
+      name="agree8"
+      checked={formData.agree8}
+      onChange={handleChange}
+      className="mt-1 h-5 w-5"
+    />
+    <span>
+      🚦 I understand that overspeeding, no-parking violations, riding without a helmet, and other traffic offences may result in police challans of approximately <strong>₹1,000–₹2,500</strong>. I have read and accept all the above Terms & Conditions.
+    </span>
+  </label>
+  {errors.agree8 && (
+    <p className="text-red-400 text-sm">{errors.agree8}</p>
+  )}
 
-            <li>
-              Customer must pay all
-              <strong> traffic challans/fines</strong>
-              received during the rental period.
-            </li>
+</div>
 
-            <li>
-              Original Driving Licence must be carried while riding.
-            </li>
+</div>
 
-            <li>
-              Bike should be returned on or before the agreed return time.
-            </li>
-
-            <li>
-              RIDEX reserves the right to cancel bookings if submitted information is incorrect.
-            </li>
-
-          </ol>
-
-        </div>
-
-      </div>
-
-      {/* Agreement */}
-
-      <div className="mt-6">
-
-        <label className="flex items-start gap-3 cursor-pointer">
-
-          <input
-            type="checkbox"
-            name="agree"
-            checked={formData.agree}
-            onChange={handleChange}
-            className="mt-1 h-5 w-5"
-          />
-
-          <span>
-            I have read and agree to all the
-            <strong> Terms & Conditions</strong>.
-          </span>
-
-        </label>
-
-        {errors.agree && (
-          <p className="text-red-400 mt-2">
-            {errors.agree}
-          </p>
-        )}
-
-      </div>
-
-      {/* Submit */}
 
       <button
         type="submit"
