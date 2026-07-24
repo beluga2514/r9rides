@@ -41,8 +41,6 @@ function Booking() {
     pickupTime: "",
     returnDate: "",
     returnTime: "",
-    pickupLocation: "",
-    destination: "",
     purpose: "",
     agree: false,
   });
@@ -131,13 +129,6 @@ function Booking() {
       newErrors.returnTime =
         "Return time is required.";
 
-    if (!formData.pickupLocation.trim())
-      newErrors.pickupLocation =
-        "Pickup location is required.";
-
-    if (!formData.destination.trim())
-      newErrors.destination =
-        "Destination is required.";
 
     if (!formData.purpose.trim())
       newErrors.purpose =
@@ -209,7 +200,7 @@ return Object.keys(newErrors).length === 0;
   return;
 }
 
-    const message = `🏍️ *R9RIDES BOOKING REQUEST*
+    const message = `🏍️ *RIDEX BOOKING REQUEST*
 
 ━━━━━━━━━━━━━━━━━━
 
@@ -249,12 +240,6 @@ ${formData.returnDate}
 Return Time:
 ${formData.returnTime}
 
-Pickup Location:
-${formData.pickupLocation}
-
-Destination:
-${formData.destination}
-
 Purpose:
 ${formData.purpose}
 
@@ -262,7 +247,7 @@ ${formData.purpose}
 
 ✅ Terms & Conditions Accepted
 
-Generated from R9RIDES Website`;
+Generated from RIDEX Website`;
 
     const whatsappURL =
       `https://wa.me/918199949996?text=${encodeURIComponent(message)}`;
@@ -564,8 +549,6 @@ Generated from R9RIDES Website`;
 
           </div>
 
-          {/* Pickup Location */}
-
           <div>
 
             <label className="block mb-2 font-medium">
@@ -705,8 +688,6 @@ Generated from R9RIDES Website`;
 
           </div>
 
-          {/* Destination */}
-
           <div className="md:col-span-2">
 
             <label className="block mb-2 font-medium">
@@ -718,7 +699,7 @@ Generated from R9RIDES Website`;
               name="destination"
               value={formData.destination}
               onChange={handleChange}
-              placeholder="Example: Vijayawada City Limits Only"
+              placeholder="Example: Kakinada Ramesampeta Rajamundry Limits Only"
               className={`w-full p-3 rounded-lg bg-gray-800 border ${
                 errors.destination
                   ? "border-red-500"
@@ -817,7 +798,7 @@ Generated from R9RIDES Website`;
             </li>
 
             <li>
-              R9RIDES reserves the right to cancel bookings if submitted information is incorrect.
+              RIDEX reserves the right to cancel bookings if submitted information is incorrect.
             </li>
 
           </ol>

@@ -47,7 +47,7 @@ function Hero() {
         <div>
         <div className="h-96 w-full rounded-xl bg-gray-800 flex items-center justify-center">
   <h2 className="text-3xl font-bold text-red-500">
-    R9RIDES
+    RIDEX
   </h2>
 </div>
         </div>

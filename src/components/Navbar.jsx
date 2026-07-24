@@ -4,7 +4,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 
         <h1 className="text-2xl font-bold text-red-500">
-          R9RIDES
+          RIDEX
         </h1>
 
         <ul className="hidden md:flex gap-8 font-medium">
